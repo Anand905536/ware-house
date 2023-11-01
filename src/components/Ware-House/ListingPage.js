@@ -1,21 +1,14 @@
 import React from 'react'
-import { Box, Card, CardContent, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
-const ListingPage = () => {
+const ListingPage = ({ val }) => {
     return (
-        <Card sx={{ minWidth: 275}} >
-            <CardContent >
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    Word of the Day
-                </Typography>
-
-                <Typography variant="body2">
-                    well meaning and kindly.
-                    <br />
-                    {'"a benevolent smile"'}
-                </Typography>
-            </CardContent>
-        </Card>
+        <Stack direction="Column" className='card-component'>
+            <img className="image" src={val.img} alt="Not shown" />
+             <Typography variant='h5' sx={{textAlign:"center",marginTop:"10px",color:"grey"}}>
+                 {val.name}
+             </Typography>
+        </Stack>
     )
 }
 

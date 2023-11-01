@@ -1,9 +1,24 @@
 import { createStore } from 'redux';
+import img1 from './assets/ware-house-1.jpg'
+import img2 from './assets/warehouse-2.jpg'
+import img3 from './assets/warehouse-3.jpg'
+import img4 from './assets/warehouse-4.jpg'
+import img5 from './assets/warehouse-5.jpg'
+import img6 from './assets/warehouse-6.jpg'
+import img7 from './assets/warehouse-7.jpg'
+import img8 from './assets/warehouse-8.jpg'
+import img9 from './assets/warehouse-9.jpg'
+import img10 from './assets/warehouse-10.jpg'
+import img11 from './assets/warehouse-11.jpg'
+import img12 from './assets/warehouse-12.jpg'
+import img13 from './assets/warehouse-13.jpg'
+
 const initialState = {
     warehouseData: [
         {
             "name": "Warehouse-165",
             "code": "W-00001",
+            "img": img1,
             "id": 1,
             "city": "Delhi",
             "space_available": 1234,
@@ -15,6 +30,7 @@ const initialState = {
         {
             "name": "Warehouse-276",
             "code": "W-00002",
+            "img": img2,
             "id": 2,
             "city": "Chennai",
             "space_available": 124,
@@ -26,6 +42,7 @@ const initialState = {
         {
             "name": "Warehouse-3039",
             "code": "W-00003",
+            "img": img3,
             "id": 3,
             "city": "Indore",
             "space_available": 124,
@@ -37,6 +54,7 @@ const initialState = {
         {
             "name": "Warehouse-324",
             "code": "W-00004",
+            "img": img4,
             "id": 4,
             "city": "Chennai",
             "space_available": 12,
@@ -48,6 +66,7 @@ const initialState = {
         {
             "name": "Warehouse-5454",
             "code": "W-00005",
+            "img": img5,
             "id": 5,
             "city": "Chennai",
             "space_available": 1243434,
@@ -59,6 +78,7 @@ const initialState = {
         {
             "name": "Warehouse-4345",
             "code": "W-00006",
+            "img": img6,
             "id": 6,
             "city": "Chennai",
             "space_available": 1,
@@ -70,6 +90,7 @@ const initialState = {
         {
             "name": "Warehouse-3455",
             "code": "W-00007",
+            "img": img7,
             "id": 7,
             "city": "Mumbai",
             "space_available": 4,
@@ -81,6 +102,7 @@ const initialState = {
         {
             "name": "Warehouse-23455",
             "code": "W-00008",
+            "img": img8,
             "id": 8,
             "city": "Bangalore",
             "space_available": 3456,
@@ -92,6 +114,7 @@ const initialState = {
         {
             "name": "Warehouse-6457",
             "code": "W-00009",
+            "img": img9,
             "id": 9,
             "city": "Bangalore",
             "space_available": 1234545,
@@ -103,6 +126,7 @@ const initialState = {
         {
             "name": "Warehouse-32456",
             "code": "W-000010",
+            "img": img10,
             "id": 10,
             "city": "Guwahati",
             "space_available": 121234,
@@ -114,6 +138,7 @@ const initialState = {
         {
             "name": "Warehouse-3245678",
             "code": "W-000011",
+            "img": img11,
             "id": 11,
             "city": "Delhi",
             "space_available": 98,
@@ -125,6 +150,7 @@ const initialState = {
         {
             "name": "Warehouse-4567",
             "code": "W-000012",
+            "img": img12,
             "id": 12,
             "city": "Indore",
             "space_available": 97,
@@ -136,6 +162,7 @@ const initialState = {
         {
             "name": "Warehouse-458",
             "code": "W-000013",
+            "img": img13,
             "id": 13,
             "city": "Delhi",
             "space_available": 654,

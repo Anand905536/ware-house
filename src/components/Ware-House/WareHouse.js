@@ -6,20 +6,23 @@ import { Box, Card, Stack, Typography } from '@mui/material';
 import { MenuItem, FormControl, Select, InputLabel } from '@mui/material'
 import './warehouse.css'
 import ListingPage from './ListingPage';
+import { useNavigate } from 'react-router-dom';
 
 const WareHouse = () => {
-    // const data = useSelector(state => state.warehouseData);
+    const data = useSelector(state => state.warehouseData);
     const [filterCity, setFilterCity] = useState(["Delhi", "Chennai", "Mumbai", "Indore", "Bengluru", "Guwahati"])
     const [filterCluster, setFilterCluster] = useState(["cluster-a-32", "cluster-a-1", "cluster-a-21", "cluster-a-2", "cluster-v-2"])
     const [filterBySpace, setFilterBySpace] = useState(["1234", "124", "12", "1243434", "1", "4", "3456", "1234545", "121234", "98", "97", "654"])
     const [city, setCity] = useState("")
     const [cluster, setCluster] = useState("")
     const [space, setSpace] = useState("")
-    const [data, setData] = useState([])
+    const navigate = useNavigate()
+
+
 
     return (
         <>
-            <Stack direction="Column" spacing={2} className='main-container' style={{ color: "white", height: "500px", display: "flex", alignItems: "center" }}>
+            <Stack direction="Column" spacing={2} className='main-container' style={{ color: "white", height: "500px", display: "flex", alignItems: "center", marginBottom: "100px" }}>
                 <Typography variant='h3' style={{ marginTop: "70px", textAlign: "center" }} >
                     Warehouse Data
                 </Typography>
@@ -83,15 +86,23 @@ const WareHouse = () => {
                     </Stack>
                 </Stack>
             </Stack>
-
             {
-                data.length > 0 ? data.map((val, idx) => {
-                    return (<ListingPage />)
-                })
-                    :
-                    <Typography variant='h4' style={{ marginTop: "100px", textAlign: "center", color: "black" }}>
+                data.length > 0 ? (
+                    <div className="listing-container">
+                        {data.map((val, idx) => (
+                            <>
+                                <div key={idx} className="listing-page" style={{ cursor: "pointer" }}
+                                    onClick={() => navigate('/Details-page-12345',{state:val})} >
+                                    <ListingPage val={val} />
+                                </div>
+                            </>
+                        ))}
+                    </div>
+                ) : (
+                    <Typography variant='h4' style={{ textAlign: "center" }}>
                         No data available
                     </Typography>
+                )
             }
         </>
     )
