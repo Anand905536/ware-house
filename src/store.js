@@ -1,4 +1,12 @@
 import { createStore } from 'redux';
+import {
+    SET_SEARCH_QUERY,
+    SET_FILTER_CITY,
+    SET_FILTER_CLUSTER,
+    SET_FILTER_SPACE,
+    FILTER_WAREHOUSE_DATA,
+} from "./action";
+
 import img1 from './assets/ware-house-1.jpg'
 import img2 from './assets/warehouse-2.jpg'
 import img3 from './assets/warehouse-3.jpg'
@@ -14,6 +22,8 @@ import img12 from './assets/warehouse-12.jpg'
 import img13 from './assets/warehouse-13.jpg'
 
 const initialState = {
+    filteredData: [],
+    searchQuery: "",
     warehouseData: [
         {
             "name": "Warehouse-165",
@@ -174,8 +184,44 @@ const initialState = {
     ],
 };
 
-const getData = (state = initialState, { type, payload }) => {
-    switch (type) {
+const getData = (state = initialState, action) => {
+    switch (action.type) {
+        case SET_SEARCH_QUERY:
+            return {
+                ...state,
+                searchQuery: action.payload,
+                filteredData: state.warehouseData.filter((item) =>
+                    item.name.toLowerCase().includes(action.payload.toLowerCase())
+                ),
+            };
+        case SET_FILTER_CITY:
+            return {
+                ...state,
+                filterCity: action.payload,
+            };
+        case SET_FILTER_CLUSTER:
+            return {
+                ...state,
+                filterCluster: action.payload,
+            };
+        case SET_FILTER_SPACE:
+            return {
+                ...state,
+                filterSpace: action.payload,
+            };
+        case FILTER_WAREHOUSE_DATA:
+            const { filterCity, filterCluster, filterSpace } = state;
+            console.log("state", state)
+            const filteredData = state.warehouseData.filter((item) => {
+                if (filterCity && item.city !== filterCity) return false;
+                if (filterCluster && item.cluster !== filterCluster) return false;
+                if (filterSpace && parseInt(item.space_available) !== parseInt(filterSpace)) return false;
+                return true;
+            });
+            return {
+                ...state,
+                filteredData,
+            };
         default:
             return state;
     }
@@ -183,4 +229,3 @@ const getData = (state = initialState, { type, payload }) => {
 
 const store = createStore(getData);
 export default store
-
